@@ -6,9 +6,6 @@
     <meta name="description" content="Hello, World! - A-Frame">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <script src="https://aframe.io/releases/0.3.0/aframe.min.js"></script>
-    <script src="https://unpkg.com/react@15.3.2/dist/react-with-addons.js"></script>
-    <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script>
-    <script src="https://unpkg.com/babel-core@5.8.38/browser.min.js"></script>
   </head>
   <body>
     <a-scene>
@@ -17,8 +14,9 @@
         <a-asset-item id="crate-mtl" src="./aztec-temple.mtl"></a-asset-item>
       </a-assets>
       <a-obj-model src="#crate-obj" mtl="#crate-mtl"></a-obj-model>
-      <div id="container"></div>
+      <a-sphere id="comet" position="1, 5.25, -5" radius="1.25" color="#EF2D5E">
+        <a-animation attribute="position" from="10 50.25 -50" to="0 0 0" dur="5000" easing="linear" repeat="indefinite"></a-animation>
+      </a-sphere>
     </a-scene>
   </body>
-  <script type="text/babel" src="http://localhost:3000/main.js"></script>
 </html>
