@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "license": "MIT",
   "scripts": {
-    "start": "budo --live --verbose --port 5000",
+    "start": "budo --live --verbose --port $PORT",
     "deploy": "ghpages",
     "ghpages": "ghpages"
   },
