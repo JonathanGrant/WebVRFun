@@ -10,15 +10,8 @@
   <body>
     <a-scene>
       <a-assets>
-        <a-asset-item id="crate-obj" src="./aztec-temple.obj"></a-asset-item>
-        <a-asset-item id="crate-mtl" src="./aztec-temple.mtl"></a-asset-item>
-        <img id="mtr-texture" src="./meteortexture.jpg"></img>
       </a-assets>
-      <a-obj-model src="#crate-obj" mtl="#crate-mtl"></a-obj-model>
-      <a-sky src="sky.jpg"></a-sky>
-      <a-sphere id="comet" position="1, 5.25, -5" radius="1.25" src="#mtr-texture">
-        <a-animation attribute="position" from="10 50.25 -50" to="0 0 0" dur="5000" easing="linear" repeat="indefinite"></a-animation>
-      </a-sphere>
+      <a-sky src="sky1.jpg"></a-sky>
     </a-scene>
   </body>
 </html>
