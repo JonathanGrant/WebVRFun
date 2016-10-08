@@ -8,7 +8,7 @@
     "deploy": "ghpages",
     "ghpages": "ghpages"
   },
-  "devDependencies": {
+  "dependencies": {
     "budo": "^7.0.0",
     "ghpages": "0.0.3"
   },
