@@ -23,6 +23,7 @@
         <a-asset-item id="crate-obj" src="./aztec-temple.obj"></a-asset-item>
         <a-asset-item id="crate-mtl" src="./aztec-temple.mtl"></a-asset-item>
         <img id="mtr-texture" src="./meteortexture.jpg"></img>
+        <video id="boomvid" autoplay loop="false" src="./boom.mp4" webkit-playsinline></video>
       </a-assets>
       <a-obj-model src="#crate-obj" mtl="#crate-mtl"></a-obj-model>
       <a-sky src="sky.jpg"></a-sky>
@@ -36,10 +37,15 @@
     <script>
       var myComet = document.getElementById('comet');
       myComet.onmouseenter = function() {
+        var boomy = document.createElement('a-video');
+        boomy.setAttribute('id', 'boomy');
+        boomy.setAttribute('src', '#boomvid');
+        boomy.setAttribute('width', '16');
+        boomy.setAttribute('height', '9');
+        boomy.setAttribute('position', myComet.getAttribute('position'));
         var x = Math.random() * 1000 - 500;
         var y = Math.random() * 50 + 10;
         var z = -1 * (Math.random() * 50 + 50);
-        console.log(x, y, z);
         myComet.setAttribute('position', {x:x, y:y, z:z});
         var comeToEarth = document.createElement('a-animation');
         comeToEarth.setAttribute('attribute', 'position');
@@ -49,10 +55,12 @@
         comeToEarth.setAttribute('repeat', 'indefinite');
         comeToEarth.setAttribute('end', 'mouseenter');
         myComet.appendChild(comeToEarth);
+        myComet.parentElement.appendChild(boomy);
+        setTimeout(function() {
+          var boomy = document.getElementById('boomy');
+          boomy.parentElement.removeChild(boomy);
+        }, 3000);
       };
-      myComet.onmousexit = function() {
-        
-      }
     </script>
   </body>
 </html>
