@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hello, World! - A-Frame</title>
+    <meta name="description" content="Hello, World! - A-Frame">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <script src="https://aframe.io/releases/0.3.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <a-asset-item id="crate-obj" src="./aztec-temple.obj"></a-asset-item>
+        <a-asset-item id="crate-mtl" src="./aztec-temple.mtl"></a-asset-item>
+        <img id="mtr-texture" src="./meteortexture.jpg"></img>
+      </a-assets>
+      <a-obj-model src="#crate-obj" mtl="#crate-mtl"></a-obj-model>
+      <a-sky src="sky.jpg"></a-sky>
+      <a-sphere id="comet" position="10 50.25 -50" radius="1.25" src="#mtr-texture">
+        <a-animation attribute="position" to="0 0 0" dur="5000" easing="ease-in" repeat="indefinite" end="mouseenter"></a-animation>
+      </a-sphere>
+      <a-camera position="0 0 0">
+        <a-cursor color="#FF0000">
+      </a-camera>
+    </a-scene>
+    <script>
+      var myComet = document.getElementById('comet');
+      myComet.onmouseenter = function() {
+        var x = Math.random() * 1000 - 500;
+        var y = Math.random() * 50 + 10;
+        var z = -1 * (Math.random() * 50 + 50);
+        console.log(x, y, z);
+        myComet.setAttribute('position', {x:x, y:y, z:z});
+        var comeToEarth = document.createElement('a-animation');
+        comeToEarth.setAttribute('attribute', 'position');
+        comeToEarth.setAttribute('to', '0 0 0');
+        comeToEarth.setAttribute('dur', '4000');
+        comeToEarth.setAttribute('easing', 'ease-in');
+        comeToEarth.setAttribute('repeat', 'indefinite');
+        comeToEarth.setAttribute('end', 'mouseenter');
+        myComet.appendChild(comeToEarth);
+      };
+      myComet.onmousexit = function() {
+        
+      }
+    </script>
+  </body>
+</html>
