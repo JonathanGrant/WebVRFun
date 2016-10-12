@@ -34,9 +34,11 @@
         <a-cursor color="#FF0000">
       </a-camera>
     </a-scene>
+    <audio id="boomaud" src="./explosion.mp3"></audio>
     <script>
       var myComet = document.getElementById('comet');
       myComet.onmouseenter = function() {
+        document.getElementById('boomaud').play();
         var boomy = document.createElement('a-video');
         boomy.setAttribute('id', 'boomy');
         boomy.setAttribute('src', '#boomvid');
